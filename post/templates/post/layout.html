@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <header class ="container center-align">
+      <h1>DjangoProject</h1>
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+      <br>
+      <a style="display:block" class = "center-align" href="/admin">Admin Login</a>
+  </body>
+</html>
