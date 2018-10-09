@@ -4,6 +4,7 @@ from .models import City
 from .forms import CityForm
 from weather import urls
 
+citylist = []
 # Create your views here.
 def index(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=7ef4a6371824c7a7ad4b4e24ddbd11f8'
@@ -16,6 +17,8 @@ def index(request):
     form = CityForm()
 
     cities = City.objects.all()
+    citylist = cities
+    print(citylist)
 
     weather_data = []
 
@@ -29,7 +32,7 @@ def index(request):
             'icon' : r['weather'][0]['icon'],
         }
         weather_data.append(city_weather)
-        print(city_weather)
+        #print(city_weather)
 
     context = {'weather_data' : weather_data,'form': form}
 

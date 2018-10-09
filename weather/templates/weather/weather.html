@@ -41,12 +41,12 @@
         </div>
     </section>
     <section class="section">
-      <a href="/{{ form.name }}">
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
                   {% for city_weather in weather_data %}
                     <div class="box">
+                      <a href="/weather/{{city_weather.city}}">
                         <article class="media">
                             <div class="media-left">
                                 <figure class="image is-50x50">
@@ -64,12 +64,12 @@
                                 </div>
                             </div>
                         </article>
+                      </a>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
-      </a>
     </section>
     <footer class="footer">
     </footer>
