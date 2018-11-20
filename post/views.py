@@ -1,17 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from celery import Celery
-import requests
+# from celery import Celery
+from .models import Posts
 
-app = Celery()
-app.config_from_object('post.config')
+# app = Celery()
+# app.config_from_object('post.config')
 # Create your views here.
 def index(request):
-    fetch_url('http://stats.nba.com/stats/boxscore')
-    return render(request, 'post/index.html')
+    posts = Posts.objects.all()[:10]
+    context = {
+    'title':'Latest Posts',
+    'posts':posts
 
-@app.task
-def fetch_url(url):
-    r = requests.get(url)
-    print(r.status_code)
-    return r.status_code
+
+    }
+
+    return render(request, 'post/index.html',context)
+
+def details(request,id):
+    post = Posts.objects.get(id=id)
+
+    context = {
+    'post':post
+    }
+    return render(request, 'post/details.html',context)

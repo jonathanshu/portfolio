@@ -46,7 +46,7 @@
                 <div class="column is-offset-4 is-4">
                   {% for city_weather in weather_data %}
                     <div class="box">
-                      <a href="/weather/{{city_weather.city}}">
+                      <a href="/weather/{{city_weather.id}}">
                         <article class="media">
                             <div class="media-left">
                                 <figure class="image is-50x50">
@@ -58,8 +58,8 @@
                                     <p>
                                         <span class="title">{{city_weather.city}}</span>
                                         <br>
-                                        <span class="subtitle">{{city_weather.temperature}}</span>
-                                        <br>{{city_weather.description}}
+                                        <!-- <span class="subtitle">{{city_weather.temperature}}</span> -->
+                                        <!-- <br>{{city_weather.description}} -->
                                     </p>
                                 </div>
                             </div>
